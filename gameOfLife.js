@@ -121,3 +121,54 @@ function step() {
 
 drawGrid();
 setInterval(step, 100);
+
+let drawingCritters = false;
+
+canvas.addEventListener('mousedown', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = Math.floor((event.clientX - rect.left) / CELL_SIZE);
+    const y = Math.floor((event.clientY - rect.top) / CELL_SIZE);
+
+    if (event.button === 0) { // Left mouse button
+        drawingCritters = true;
+        critters.push({
+            y: y,
+            x: x,
+            direction: Math.floor(Math.random() * 4),
+            stepsLeft: Math.floor(Math.random() * (MAX_STEPS_BEFORE_TURN - MIN_STEPS_BEFORE_TURN + 1)) + MIN_STEPS_BEFORE_TURN
+        });
+    } else if (event.button === 2) { // Right mouse button
+        grid[y][x] = 1 - grid[y][x];
+    }
+});
+
+canvas.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = Math.floor((event.clientX - rect.left) / CELL_SIZE);
+    const y = Math.floor((event.clientY - rect.top) / CELL_SIZE);
+
+    if (event.buttons === 1) { // Left mouse button is pressed
+        if (drawingCritters) {
+            critters.push({
+                y: y,
+                x: x,
+                direction: Math.floor(Math.random() * 4),
+                stepsLeft: Math.floor(Math.random() * (MAX_STEPS_BEFORE_TURN - MIN_STEPS_BEFORE_TURN + 1)) + MIN_STEPS_BEFORE_TURN
+            });
+        } else {
+            grid[y][x] = 1;
+        }
+    } else if (event.buttons === 2) { // Right mouse button is pressed
+        grid[y][x] = 1 - grid[y][x];
+    }
+});
+
+canvas.addEventListener('mouseup', (event) => {
+    if (event.button === 0) {
+        drawingCritters = false;
+    }
+});
+
+canvas.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+});
