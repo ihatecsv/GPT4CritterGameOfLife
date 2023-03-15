@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Game of Life with Directed Critters</h1>
-    <p>This interactive implementation of Conway's Game of Life features critters that move around the grid and "poop" random groups of live cells. The simulation runs in your web browser using JavaScript, HTML, and CSS.</p>
+    <p>This interactive implementation of Conway's Game of Life, featuring directed critters, was created with the help of GPT-4, an advanced AI language model. The simulation runs in your web browser using JavaScript, HTML, and CSS.</p>
     <h2>How to Use</h2>
     <ul>
         <li>To draw critters on the grid, press and hold the left mouse button.</li>
@@ -16,5 +16,16 @@
     </ul>
     <h2>About the Game of Life</h2>
     <p>The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.</p>
+    <p>The game takes place on a finite two-dimensional grid of square cells, in which each cell can be in one of two states: alive (populated) or dead (unpopulated). The game evolves through a series of generations, with each cell's state determined by its eight neighboring cells (vertically, horizontally, and diagonally adjacent) according to these rules:</p>
+    <ol>
+        <li>Any live cell with fewer than two live neighbors dies, as if by underpopulation.</li>
+        <li>Any live cell with two or three live neighbors lives on to the next generation.</li>
+        <li>Any live cell with more than three live neighbors dies, as if by overpopulation.</li>
+        <li>Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.</li>
+    </ol>
+    <p>Although the Game of Life has simple rules, it can produce complex and fascinating patterns. Some of the most well-known patterns include the Glider, the Lightweight Spaceship (LWSS), and the Gosper Glider Gun. The game has attracted the attention of mathematicians, computer scientists, and hobbyists, and it has inspired countless variations and adaptations.</p>
+    <h2>Directed Critters</h2>
+    <p>In this version of the Game of Life, directed critters are added to the grid. These critters move around the grid in a non-random manner, changing direction after a random number of steps. They "poop" groups of live cells as they move, which can create new patterns and interactions with the Game of Life cells.</p>
+    <p>The directed critters provide a dynamic element to the traditional Game of Life, creating an ever-changing environment as they traverse the grid and interact with the cells.</p>
 </body>
 </html>
